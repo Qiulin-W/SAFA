@@ -1,0 +1,6 @@
+__pycache__
+modules/__pycache__
+modules/data
+ckpt
+face_parsing
+*.mp4

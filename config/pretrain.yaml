@@ -1,0 +1,23 @@
+dataset_params:
+  root_dir: data/voxceleb1/png
+  meta_dir: video_ldmk_meta
+  frame_shape: [256, 256, 3]
+  augmentation_params:
+    flip_param:
+      horizontal_flip: True
+      time_flip: False
+    jitter_param:
+      brightness: 0.1
+      contrast: 0.1
+      saturation: 0.1
+      hue: 0.1
+
+train_params:
+  num_epochs: 50
+  num_repeats: 2
+  lr_tdmm: 2.0e-4
+  batch_size: 32
+  checkpoint_freq: 5
+  loss_weights:
+    landmark: 1
+    tdmm_param: 1.0e-2
