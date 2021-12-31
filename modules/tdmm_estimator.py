@@ -8,7 +8,6 @@ from pytorch3d.io import load_obj
 
 from modules.util import mymobilenetv2, AntiAliasInterpolation2d
 from modules.renderer_util import *
-from modules.flame_config import cfg
 from modules.FLAME import FLAME
 
 import pickle
