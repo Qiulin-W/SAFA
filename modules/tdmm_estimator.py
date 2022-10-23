@@ -104,7 +104,7 @@ class TDMMEstimator(nn.Module):
 
     def extract_texture(self, images, transformed_verts, with_eye=True):
         uv_pverts = self.world2uv(transformed_verts)
-        uv_gt = F.grid_sample(images, uv_pverts.permute(0, 2, 3, 1)[:, :, :, :2], mode='bilinear')
+        uv_gt = F.grid_sample(images, uv_pverts.permute(0, 2, 3, 1)[:, :, :, :2], mode='bilinear', align_corners=True)
         if with_eye:
             uv_texture_gt = uv_gt[:, :3, :, :] * self.uv_face_eye_mask
         else:
