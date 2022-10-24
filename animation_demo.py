@@ -80,8 +80,10 @@ def make_animation(source_image, driving_video,
         source_albedo = tdmm.extract_texture(source, source_transformed_verts, with_eye=with_eye)
 
         driving = torch.tensor(np.array(driving_video)[np.newaxis].astype(np.float32)).permute(0, 4, 1, 2, 3)
-        driving_initial = driving[:, :, 0].cuda()
-        kp_driving_initial = kp_detector(driving[:, :, 0].cuda())
+        driving_initial = driving[:, :, 0]
+        if not cpu:
+            driving_initial = driving_initial.cuda()
+        kp_driving_initial = kp_detector(driving_initial)
         driving_init_codedict = tdmm.encode(driving_initial)
         driving_init_verts, driving_init_transformed_verts, _ = tdmm.decode_flame(driving_init_codedict)
 
