@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
     opt = parser.parse_args()
 
-    source_image = imageio.imread(opt.source_image_pth)
+    source_image = imageio.v2.imread(opt.source_image_pth)
     reader = imageio.get_reader(opt.driving_video_pth)
     fps = reader.get_meta_data()['fps']
     driving_video = []
