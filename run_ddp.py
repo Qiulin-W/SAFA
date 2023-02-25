@@ -55,7 +55,7 @@ if __name__ == "__main__":
                 copy(opt.config, log_dir)
 
     with open(opt.config) as f:
-        config = yaml.load(f)
+        config = yaml.safe_load(f)
 
     if opt.mode == 'train_tdmm':
         tdmm = TDMMEstimator()

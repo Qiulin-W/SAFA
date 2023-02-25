@@ -66,7 +66,7 @@ def partial_state_dict_load(module, state_dict):
 def load_checkpoints(blend_scale, config_path, checkpoint_path, cpu=False):
 
     with open(config_path) as f:
-        config = yaml.load(f)
+        config = yaml.safe_load(f)
 
     # init generator
     generator = OcclusionAwareGenerator(blend_scale=blend_scale,
